@@ -1,2 +1,2 @@
 # python-snipets
-Repository to study some coding in Python, its libs and fameworks
+Repository to study some coding in Python, its libs and frameworks

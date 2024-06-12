@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Item List</h1>
+    <a href="/add">Add New Item</a>
+    <ul>
+        {% for item in items %}
+            <li>
+                {{ item.name }} - {{ item.description }}
+                <a href="/edit/{{ item.id }}">Edit</a>
+                <a href="/delete/{{ item.id }}" onclick="event.preventDefault(); document.getElementById('delete-form-{{ item.id }}').submit();">Delete</a>
+                <form id="delete-form-{{ item.id }}" action="/delete/{{ item.id }}" method="post" style="display: none;"></form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
